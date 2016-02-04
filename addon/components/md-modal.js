@@ -7,6 +7,7 @@ const { Component, computed, computed: { oneWay } } = Ember;
 export default Component.extend(UsesSettings, {
   layout,
 
+  'class': false,
   acceptsKeyResponder: true,
   attributeBindings: ['style:inlineStyle'],
   concatenatedProperties: ['modalClassNames'],
@@ -20,6 +21,9 @@ export default Component.extend(UsesSettings, {
   modalClassNames: ['modal', 'show'],
   _modalClassString: computed('modalClassNames.[]', 'isFooterFixed', function() {
     const names = this.get('modalClassNames');
+    if (this.get('class')) {
+      names.push(this.get('class'))
+    }
     if (this.get('isFooterFixed')) {
       names.push('modal-fixed-footer');
     }
