@@ -1,5 +1,8 @@
-{{#if icon}}
+{{#if mdi-icon}}
   <i class="{{icon}} {{iconPosition}}"></i>
+{{/if}}
+{{#if icon}}
+  <i class="material-icons {{iconPosition}}">{{icon}}</i>
 {{/if}}
 {{text}}
 <ul id="{{_dropdownContentId}}" class="dropdown-content">
